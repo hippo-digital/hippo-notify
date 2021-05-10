@@ -5,6 +5,7 @@ __pycache__
 .terraform
 .DS_Store
 .vscode
+.serverless
 
 
 # Elastic Beanstalk Files
