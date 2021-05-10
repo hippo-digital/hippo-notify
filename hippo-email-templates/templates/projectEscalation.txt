@@ -1,0 +1,3 @@
+Dear {{userName}},
+
+The following reports contain issues that have been escalated to the management team: {{projectName}}

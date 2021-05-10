@@ -1,0 +1,3 @@
+Dear {{userName}},
+
+The following report has been created: {{projectName}}

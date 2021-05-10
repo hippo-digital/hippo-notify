@@ -1,0 +1,41 @@
+service: hippo-notify
+# app and org for use with dashboard.serverless.com
+app: hippo-notify-service
+org: hippostu
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+frameworkVersion: '2'
+
+plugins:
+  - '@haftahave/serverless-ses-template'                            #  Plugin to deal with the email templates
+
+custom:
+  sesTemplates:
+    addStage: false                                                 # Specifies whether to add stage to template name (default false)
+    configFile: './hippo-email-templates/templateIndex.js'          # Config file path (default './ses-email-templates/index.js')
+    deployHook: 'before:deploy:deploy'                              # Specifies serverless lifecycle event plugin use to deploy templates (default 'before:deploy:deploy')
+    disableAutoDeploy: false                                        # Specifies whether to sync templates while sls deploy (default false)
+    region: 'eu-west-1'                                             # Specifies AWS region for SES templates (not required)
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  region: eu-west-1
+
+  iamRoleStatements:                                                #  Specifies what permissions the Lambda functions in this file have
+      - Effect: "Allow"
+        Action:
+          - ses:SendEmail
+          - ses:SendRawEmail
+          - ses:SendTemplatedEmail
+        Resource: '*'
+functions:
+  sendEmail:
+    handler: sendEmail.sendTemplatedEmail                          #  Attach a lambda function to the API function
+    events:
+      - httpApi:                                                   #  Create a http API in AWS Gateway
+          method: POST
+          path: /sendTemplatedEmail
+          
