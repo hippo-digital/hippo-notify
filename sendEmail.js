@@ -26,8 +26,13 @@ exports.sendTemplatedEmail = (event, context, callback) => {
       context.fail(err);
     }else{
       
+      var response = {
+          "statusCode": 200,
+          "body": JSON.stringify(data)
+      }
+      
       console.log(data);
-      context.succeed(data);
+      context.succeed(response);
     }
   });
 };

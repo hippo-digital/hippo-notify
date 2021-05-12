@@ -23,6 +23,9 @@ provider:
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
   region: eu-west-1
+  apiGateway:
+    apiKeys:
+      - name: emailAPIKey
 
   iamRoleStatements:                                                #  Specifies what permissions the Lambda functions in this file have
       - Effect: "Allow"
@@ -35,7 +38,8 @@ functions:
   sendEmail:
     handler: sendEmail.sendTemplatedEmail                          #  Attach a lambda function to the API function
     events:
-      - httpApi:                                                   #  Create a http API in AWS Gateway
+      - http:                                                      #  Create a http API in AWS Gateway
           method: POST
           path: /sendTemplatedEmail
+          private: true
           
