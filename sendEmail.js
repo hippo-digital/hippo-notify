@@ -1,7 +1,7 @@
 // Load the AWS SDK for Node.js
 var aws = require('aws-sdk');
 
-// Create a new SES object in ap-south-1 region
+// Create a new SES object in eu-west-1 region
 var ses = new aws.SES({region: 'eu-west-1'});
 
 exports.sendTemplatedEmail = (event, context, callback) => {
@@ -16,7 +16,7 @@ exports.sendTemplatedEmail = (event, context, callback) => {
         sendTo
       ]
     },
-    Source: 'Hippo Notify <stuart.kd@hippodigital.co.uk>',
+    Source: 'Notify <notify@hippodigital.co.uk>',
     TemplateData: JSON.stringify(data)
     };
 

@@ -27,13 +27,15 @@ provider:
     apiKeys:
       - name: emailAPIKey
 
-  iamRoleStatements:                                                #  Specifies what permissions the Lambda functions in this file have
-      - Effect: "Allow"
-        Action:
-          - ses:SendEmail
-          - ses:SendRawEmail
-          - ses:SendTemplatedEmail
-        Resource: '*'
+  iam:
+    role:
+      statements:                                                #  Specifies what permissions the Lambda functions in this file have
+        - Effect: "Allow"
+          Action:
+            - ses:SendEmail
+            - ses:SendRawEmail
+            - ses:SendTemplatedEmail
+          Resource: '*'
 functions:
   sendEmail:
     handler: sendEmail.sendTemplatedEmail                          #  Attach a lambda function to the API function
