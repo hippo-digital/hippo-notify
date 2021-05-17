@@ -17,7 +17,10 @@ custom:
     deployHook: 'before:deploy:deploy'                              # Specifies serverless lifecycle event plugin use to deploy templates (default 'before:deploy:deploy')
     disableAutoDeploy: false                                        # Specifies whether to sync templates while sls deploy (default false)
     region: 'eu-west-1'                                             # Specifies AWS region for SES templates (not required)
-
+package:
+  individually: true
+  exclude:
+    - ./**
 provider:
   name: aws
   runtime: nodejs12.x
@@ -39,6 +42,9 @@ provider:
 functions:
   sendEmail:
     handler: sendEmail.sendTemplatedEmail                          #  Attach a lambda function to the API function
+    package:
+      include:
+        - sendEmail.js
     events:
       - http:                                                      #  Create a http API in AWS Gateway
           method: POST
