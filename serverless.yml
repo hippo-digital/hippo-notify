@@ -1,7 +1,8 @@
-service: hippo-notify
 # app and org for use with dashboard.serverless.com
-app: hippo-notify-service
-org: hippostu
+org: hippodigital
+app: hippo-notify
+service: hippo-notify-service
+
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -28,7 +29,7 @@ provider:
   region: eu-west-1
   apiGateway:
     apiKeys:
-      - name: emailAPIKey
+      - name: emailHippoAPIKey
 
   iam:
     role:
