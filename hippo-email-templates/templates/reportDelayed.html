@@ -6,12 +6,14 @@
             p    {color: black;}
             h1    {color: black;}
         </style>
-        <h1>{{projectName}} Escalation</h1>
+        <h1>Reminder to complete your SDL Report</h1>
     </head>
     <body>
         <p>Dear {{sendToName}},</p>
-        <p>The following report contains issues that have been escalated to the management team:</p>
-        <p>{{projectName}} | {{sdlName}} | {{reportLink}}</p>
+        <p>Your reports for the following projects are delayed. Please complete them promptly:</p>
+        {{#each project}}
+                    &bull;    {{projectName}} | {{projectLink}}<br>
+        {{/each}}
         <p>-- Hippo Project Knowledge Base</p>
     </body>
 </html>

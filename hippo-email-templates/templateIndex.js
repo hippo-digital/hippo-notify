@@ -8,6 +8,10 @@ const templateList = [
   {
     templateId: 'newProjectCreation',
     templateSubject: 'Project: {{projectName}} has been created',
+  },
+  {
+    templateId: 'reportDelayed',
+    templateSubject: 'Reminder to complete your SDL Report'
   }
 ];
 

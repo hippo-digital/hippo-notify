@@ -1,0 +1,10 @@
+Reminder to complete your SDL Report
+Dear {{sendToName}},
+Your reports for the following projects are delayed. Please complete them promptly:
+
+    {{#each project}}
+      {{projectName}} | {{projectLink}}
+    {{/each}}
+
+
+-- Hippo Project Knowledge Base
