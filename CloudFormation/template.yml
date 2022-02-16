@@ -107,7 +107,7 @@ Resources:
                   sendTo
                 ]
               },
-              Source: 'Hippo Notify <stuart.kd@hippodigital.co.uk>',
+              Source: 'Hippo Notify <notify@hippodigital.co.uk>',
               TemplateData: JSON.stringify(data)
               };
 
