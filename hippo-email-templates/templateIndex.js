@@ -12,6 +12,10 @@ const templateList = [
   {
     templateId: 'reportDelayed',
     templateSubject: 'Reminder to complete your SDL Report'
+  },
+  {
+    templateId: 'employeesImported',
+    templateSubject: 'Eploy Importer Summary'
   }
 ];
 
