@@ -1,0 +1,7 @@
+Dear {{sendToName}},
+
+{{numberOfEmployees}} have finished being imported to Bamboo.
+Please see the list of names below to see who has been imported.
+{{employeesImported}}
+
+-- Eploy/Bamboo Importer Service
